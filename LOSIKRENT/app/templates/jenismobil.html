@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Jenis Mobil</h1>
+    <table>
+        <tr>
+            <th>Nama Mobil</th>
+            <th>Jumlah Mobil</th>
+            <th>Harga Sewa</th>
+        </tr>
+        {% for item in alljenismobilobj %}
+        <tr>
+            <td>{{ item.namamobil}}</td>
+            <td>{{ item.jumlahmobil}}</td>
+            <td>{{ item.hargasewa}}</td>
+            <td>
+                <a href="{% url 'updatejenismobil' item.idjenismobil %}">
+                    <button>Update</button>
+                </a>
+                <a href="{% url 'deletejenismobil' item.idjenismobil %}">
+                    <button>Delete</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'createdatajenismobil' %}"> 
+        <button>Create Data</button>
+    </a>
+    <h1>Get Jenis Mobil</h1>
+    <table>
+        <tr>
+            <th>Nama Mobil</th>
+            <th>Jumlah Mobil</th>
+            <th>Harga Sewa</th>
+        </tr>
+        <tr>
+            <td>{{ getjenismobilobj.namamobil }}</td>
+            <td>{{ getjenismobilobj.jumlahmobil }}</td>
+            <td>{{ getjenismobilobj.hargasewa }}</td>
+        </tr>
+    </table>
+</body>
+</html>

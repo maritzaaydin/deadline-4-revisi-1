@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>penyewa</title>
+</head>
+<body>
+    <h1>Penyewa</h1>
+    <table>
+        <tr>
+            <th>Nama</th>
+            <th>Nomor telepon</th>
+            <th>Alamat</th>
+            <th>Nomor KTP</th>
+            <th>Dokumen</th>
+        </tr>
+        {% for item in allpenyewaobj %}
+        <tr>
+            <td>{{ item.nama}}</td>
+            <td>{{ item.nomortelepon }}</td>
+            <td>{{ item.alamat }}</td>
+            <td>{{ item.nomorktp }}</td>
+            <td>{{ item.dokumen }}</td>
+            <td>
+                <a href="{% url 'updatepenyewa' item.idpenyewa %}">
+                    <button>Update</button>
+                </a>
+                <a href="{% url 'deletepenyewa' item.idpenyewa %}">
+                    <button>Delete</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'createdatapenyewa' %}"> 
+        <button>Create Data</button>
+    </a>
+    <h1>Get Penyewa</h1>
+    <table>
+        <tr>
+            <th>Nama</th>
+            <th>Nomor Telepon</th>
+            <th>Alamat</th>
+            <th>Nomor KTP</th>
+            <th>Dokumen</th>
+        </tr>
+        <tr>
+            <td>{{ getpenyewaobj.nama }}</td>
+            <td>{{ getpenyewaobj.nomortelepon }}</td>
+            <td>{{ getpenyewaobj.alamat }}</td>
+            <td>{{ getpenyewaobj.nomorktp }}</td>
+            <td>{{ getpenyewa.dokumen }}</td>
+        </tr>
+    </table>
+    <h1>Filter Penyewa</h1>
+    <table>
+        <tr>
+            <th>Nama</th>
+            <th>Nomor Telepon</th>
+            <th>Alamat</th>
+            <th>Nomor KTP</th>
+            <th>Dokumen</th>
+        </tr>
+        {% for item in filterpenyewaobj %}
+        <tr>
+            <td>{{ item.nama}}</td>
+            <td>{{ item.nomortelepon }}</td>
+            <td>{{ item.alamat }}</td>
+            <td>{{ item.nomorktp }}</td>
+            <td>{{ item.dokumen }}</td>
+        </tr>
+        {% endfor %}
+        </tr>
+    </table>
+</body>
+</html>

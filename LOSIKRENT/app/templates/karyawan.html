@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Karyawan</h1>
+    <table>
+        <tr>
+            <th>Nama</th>
+            <th>Alamat</th>
+            <th>Nomor Telepon</th>
+        </tr>
+        {% for item in allkaryawanobj %}
+        <tr>
+            <td>{{ item.nama}}</td>
+            <td>{{ item.alamat}}</td>
+            <td>{{ item.nomortelepon}}</td>
+            <td>
+                <a href="{% url 'updatekaryawan' item.idkaryawan %}">
+                    <button>Update</button>
+                </a>
+                <a href="{% url 'deletekaryawan' item.idkaryawan %}">
+                    <button>Delete</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'createdatakaryawan' %}"> 
+        <button>Create Data</button>
+    </a>
+    <h1>Get Karyawan</h1>
+    <table>
+        <tr>
+            <th>Nama</th>
+            <th>Alamat</th>
+            <th>Nomor Telepon</th>
+        </tr>
+        <tr>
+            <td>{{ getkaryawanobj.nama }}</td>
+            <td>{{ getkaryawanobj.alamat }}</td>
+            <td>{{ getkaryawanobj.nomortelepon }}</td>
+        </tr>
+    </table> 
+</body>
+</html>
